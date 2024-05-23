@@ -1,0 +1,2 @@
+var author = "Albert Einstein"; // Declare a variable named 'author' of type string and assign it the value "Albert Einstein"
+console.log("".concat(author, " once said, \u201CA person who never made a mistake never tried anything new.\u201D")); // Log the value of 'author' concatenated with the string " once said, “A person who never made a mistake never tried anything new." to the console, using template literals for string interpolation
