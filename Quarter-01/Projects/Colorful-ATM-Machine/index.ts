@@ -5,27 +5,29 @@ import chalk from "chalk";
 let balance = 5000;
 let myPin = 1234;
 
-console.log(chalk.blue.bold("\n\tWelcome to 'CodeWithAyaan' - ATM Machine\n"));
+console.log(chalk.blackBright("=").repeat(55))
+console.log(chalk.magenta.bold("\tWelcome to CodeWithAyaan - ATM Machine"))
+console.log(chalk.blackBright("=").repeat(55))
 
 let pinAnswer = await inquirer.prompt([
   {
     name: "pin",
     type: "number",
-    message: chalk.grey.underline.bold("Enter Your Security Code:"),
+    message: (chalk.yellowBright.bold("Enter Your Security Code:")),
   },
 ]);
 
 if (pinAnswer.pin === myPin) {
-  console.log(chalk.green.bold("\nPin is Correct, Login Successfully!"));
+  console.log(chalk.green.bold("\n\tPin is Correct, Login Successfully!"));
   console.log(
-    chalk.italic.bold.bgYellow(`\nYour Current Balance is ${balance} Rupees\n`)
+    chalk.italic.bold.blueBright(`\nYour Current Balance is ${balance} Rupees\n`)
   );
 
   let operationAnswer = await inquirer.prompt([
     {
       name: "operation",
       type: "list",
-      message: chalk.grey.underline.bold("Select the Operation"),
+      message: chalk.yellowBright.bold("Select the Operation"),
       choices: ["Withdraw Amount", "Check Balance"],
     },
   ]);
@@ -35,7 +37,7 @@ if (pinAnswer.pin === myPin) {
       {
         name: "Option",
         type: "list",
-        message: chalk.grey.underline.bold("Select a WithDrawal Method:"),
+        message: chalk.yellowBright.bold("Select a WithDrawal Method:"),
         choices: ["Fast Cash", "Enter Amount"],
       },
     ]);
@@ -44,7 +46,7 @@ if (pinAnswer.pin === myPin) {
         {
           name: "amount",
           type: "number",
-          message: chalk.grey.underline.bold("Enter Amount to Withdraw:"),
+          message: chalk.yellowBright.bold("Enter Amount to Withdraw:"),
         },
       ]);
 
@@ -67,7 +69,7 @@ if (pinAnswer.pin === myPin) {
         {
           name: "cashOption",
           type: "list",
-          message: chalk.grey.underline.bold("Select Amount:"),
+          message: chalk.yellowBright.bold("Select Amount:"),
           choices: [1000, 2000, 5000, 10000],
         },
       ]);
@@ -92,7 +94,9 @@ if (pinAnswer.pin === myPin) {
       console.log(chalk.redBright.bold("Invalid Option!"));
     }
   } else if (operationAnswer.operation === "Check Balance") {
-    console.log(`\nYour Acount Balance is ${balance}`);
+    console.log(chalk.greenBright.bold(`\nYour Acount Balance is "${chalk.yellow.bold(balance)}"`));
+    console.log(chalk.bold.italic.blueBright("\n \tThank You For Using ATM Machine")
+  )
   }
 } else {
   console.log(chalk.redBright.bold("\nYou Have Enter Wrong Pin! Try Again"));
