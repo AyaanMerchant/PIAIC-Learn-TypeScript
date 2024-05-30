@@ -1,22 +1,25 @@
 #! /usr/bin/env node
 
 import inquirer from "inquirer";
+import chalk from "chalk";
 
-console.log("\n\tWelcome to 'CodeWithAyaan' - CLI Number Guessing Game\n")
+console.log(chalk.blackBright("=").repeat(63))
+console.log(chalk.magenta.bold("\tWelcome to CodeWithAyaan - Number Guessing Game"))
+console.log(chalk.blackBright("=").repeat(63))
 
 const randomNumber = Math.floor(Math.random() * 10 + 1);
 const answer = await inquirer.prompt([
     {
         name: "UserGuessNumber",
         type: "number",
-        message: "Enter Your Guess Number (Limit from 1 - 10): ",
+        message: chalk.yellow.bold("Enter Your Guess Number (Limit from 1 - 10): "),
     }
 ]);
 
 if(answer.UserGuessNumber === randomNumber){
-    console.log("\nCongralutions! You Guess correct Number")
+    console.log(chalk.greenBright.bold("\n\tCongralutions! You Guess correct Number"))
 }
 else{
-    console.log("\nSorry! you Guess Wrong Number")
-    console.log("The Actual Number is:",randomNumber)
+    console.log(chalk.redBright.bold("\n\tSorry! you Guess Wrong Number"))
+    console.log(chalk.greenBright.bold("\tThe Actual Number is:",randomNumber))
 }
