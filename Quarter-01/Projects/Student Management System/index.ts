@@ -21,19 +21,19 @@ class Student {
     }
 
     view_balance() {
-        console.log(`Balance for ${this.name} : $${this.balance}`)
+        console.log(chalk.greenBright.bold(`\n\tBalance for ${this.name} : $${this.balance}\n`))
     }
 
     pay_fees(amount: number) {
         this.balance -= amount;
-        console.log(`$${amount} Fees Paid Successfuly for ${this.name}`)
+        console.log(chalk.green.bold(`\n\t$${amount} Fees Paid Successfuly for ${this.name}\n`))
     }
 
     show_status(id: number) {
-        console.log(`ID: ${this.id}`)
-        console.log(`Name: ${this.name}`)
-        console.log(`Courses: ${this.courses}`)
-        console.log(`Balance: ${this.balance}`)
+        console.log(chalk.greenBright.bold("\n\tID:"),this.id)
+        console.log(chalk.greenBright.bold("\tName:"),this.name)
+        console.log(chalk.greenBright.bold("\tCourses:"),this.courses)
+        console.log(chalk.greenBright.bold("\tBalance:"),`$${this.balance}\n`)
     }
 
 
@@ -50,7 +50,7 @@ class StudentManager {
     add_student(name: string) {
         let student = new Student(name)
         this.students.push(student)
-        console.log(`Student: ${name} Added Successfuly. Student ID: ${student.id}`)
+        console.log(chalk.greenBright.bold(`\n\tStudent: ${name} Added Successfuly. Student ID: ${student.id}\n`))
     }
     //Method to enroll the student in the course
     async enroll_student() {
@@ -58,7 +58,7 @@ class StudentManager {
             {
                 name: "student_id",
                 type: "number",
-                message: "Enter The Student ID:"
+                message: chalk.yellow.bold("Enter The Student ID:")
             }
         ]);
         let student_found = this.find_student(enroll_input.student_id);
@@ -67,13 +67,13 @@ class StudentManager {
                 {
                     name: "course_name",
                     type: "input",
-                    message: "Enter A Course Name:"
+                    message: chalk.yellow.bold("Enter A Course Name:")
                 }
             ]);
             student_found.enroll(course_input.course_name);
-            console.log(`${student_found.name} Enrolled in ${course_input.course_name} Successfully`);
+            console.log(chalk.green.bold(`\n\t${student_found.name} Enrolled in ${course_input.course_name} Successfully\n`))
         } else {
-            console.log(chalk.red.bold(`Student Not Found, Please Enter The Correct Student ID`))
+            console.log(chalk.red.bold(`\n\tStudent Not Found, Please Enter The Correct Student ID\n`))
         }
     }
 
@@ -84,7 +84,7 @@ class StudentManager {
             student_found.view_balance()
         }
         else {
-            console.log(chalk.red.bold(`Student Not Found, Please Enter The Correct Student ID`))
+            console.log(chalk.red.bold(`\nStudent Not Found, Please Enter The Correct Student ID\n`))
         }
     }
 
@@ -94,7 +94,7 @@ class StudentManager {
             {
                 name: "student_id",
                 type: "number",
-                message: "Enter The Student ID:"
+                message: chalk.yellow.bold("Enter The Student ID:")
             }
         ]);
         let student_found = this.find_student(student_id_input.student_id);
@@ -103,12 +103,12 @@ class StudentManager {
                 {
                     name: "amount",
                     type: "number",
-                    message: "Enter The Amount"
+                    message: chalk.yellow.bold("Enter The Amount:")
                 }
             ]);
             student_found.pay_fees(amount_input.amount);
         } else {
-            console.log(chalk.red.bold(`Student Not Found, Please Enter The Correct Student ID`))
+            console.log(chalk.red.bold(`\nStudent Not Found, Please Enter The Correct Student ID\n`))
         }
     }
 
@@ -119,7 +119,7 @@ class StudentManager {
             student_found.show_status(std_id)
         }
         else {
-            console.log(chalk.red.bold(`Student Not Found, Please Enter The Correct Student ID`))
+            console.log(chalk.red.bold(`\nStudent Not Found, Please Enter The Correct Student ID\n`))
         }
     }
 
@@ -135,7 +135,7 @@ class StudentManager {
 
 // Main Function to Run the Progress
 async function main() {
-    console.log(`\n\tWelcome To CodeWithAyaan - Student Management System`)
+    console.log(chalk.blueBright.bold(`\n\tWelcome To CodeWithAyaan - Student Management System`))
     console.log("-".repeat(67))
 
     let student = new StudentManager();
@@ -146,7 +146,7 @@ async function main() {
             {
                 name: "choice",
                 type: "list",
-                message: "Select An Option: ",
+                message: chalk.yellow.bold("Select An Option: "),
                 choices: ["Add Student", "Enroll Student", "View Student Balance", "Pay Fees", "Show Status", "Exit"]
             }
         ]);
@@ -158,7 +158,7 @@ async function main() {
                     {
                         name: "addName",
                         type: "input",
-                        message: "Enter The Student Name:"
+                        message: chalk.yellow.bold("Enter The Student Name:")
                     }
                 ]);
                 student.add_student(name.addName)
@@ -173,7 +173,7 @@ async function main() {
                     {
                         name: "Student_ID",
                         type: "number",
-                        message: "Enter The Student ID:"
+                        message: chalk.yellow.bold("Enter The Student ID:")
                     }
                 ]);
                 student.view_student_balance(student_ID_input.Student_ID)
@@ -188,14 +188,14 @@ async function main() {
                     {
                         name: "student_id",
                         type: "number",
-                        message: "Enter The Student ID:"
+                        message: chalk.yellow.bold("Enter The Student ID:")
                     }
                 ]);
                 student.show_student_status(student_input2.student_id)
                 break;
 
             case "Exit":
-                console.log(`Thank You For Using Student Management System`)
+                console.log(chalk.greenBright.bold(`\n\tThank You For Using Student Management System`))
                 process.exit()
         }
 
