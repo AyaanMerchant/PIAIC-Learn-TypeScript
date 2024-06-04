@@ -17,13 +17,13 @@ const answer = await inquirer.prompt([
 console.log(answer);
 //conditional Statement
 if (answer.Operator === "Addition") {
-    console.log(`\nAnswer: ${answer.fistNumber} + ${answer.secondNumber} =`, answer.fistNumber + answer.secondNumber);
+    console.log(`\nAnswer: ${chalk.magenta.bold(answer.fistNumber)} + ${chalk.magenta.bold(answer.secondNumber)} =`, chalk.green.bold(answer.fistNumber + answer.secondNumber));
 }
 else if (answer.Operator === "Subtraction") {
-    console.log(`\nAnswer: ${answer.fistNumber} - ${answer.secondNumber} =`, answer.fistNumber - answer.secondNumber);
+    console.log(`\nAnswer: ${chalk.magenta.bold(answer.fistNumber)} - ${chalk.magenta.bold(answer.secondNumber)} =`, chalk.green.bold(answer.fistNumber - answer.secondNumber));
 }
 else if (answer.Operator === "Multiplication") {
-    console.log(`\nAnswer: ${answer.fistNumber} x ${answer.secondNumber} =`, answer.fistNumber * answer.secondNumber);
+    console.log(`\nAnswer: ${chalk.magenta.bold(answer.fistNumber)} * ${chalk.magenta.bold(answer.secondNumber)} =`, chalk.green.bold(answer.fistNumber * answer.secondNumber));
 }
 else if (answer.Operator === "Division") {
     console.log(`\nAnswer: ${chalk.magenta.bold(answer.fistNumber)} / ${chalk.magenta.bold(answer.secondNumber)} =`, chalk.green.bold(answer.fistNumber / answer.secondNumber));
