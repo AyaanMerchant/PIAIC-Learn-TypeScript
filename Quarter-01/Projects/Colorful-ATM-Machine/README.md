@@ -6,7 +6,7 @@
   <h2 align="center">:eight_spoked_asterisk: ATM Machine TypeScript:eight_spoked_asterisk:</h2>
 
   <p align="center">
-An ATM simulation with functionalities to check account balance and withdraw funds. The withdrawal feature includes a fast cash option for quick transactions. This project furthered my grasp of TypeScript concepts such as type safety, object-oriented programming, and modern JavaScript features. Building this application deepened my understanding of the compilation process and error handling in TypeScript  </p>
+An ATM simulation with functionalities to check account balance and withdraw funds. The withdrawal feature includes a fast cash option for quick transactions. This project furthered my grasp of TypeScript concepts such as type safety, object-oriented programming, and modern JavaScript features. Building this application deepened my understanding of the compilation process and error handling in TypeScrip  </p>
 
 <p align="center">
     <a href="https://github.com/AyaanMerchant/PIAIC-Learn-TypeScript/stargazers" alt="Stars">
