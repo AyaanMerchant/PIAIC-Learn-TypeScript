@@ -20,19 +20,19 @@ let userAnswer = await inquirer.prompt([
     {
         name: "from_currency",
         type: "list",
-        message: chalk.magentaBright.bold("\nSelect The Currency To Covert From:"),
+        message: chalk.magentaBright.bold("Select The Currency To Covert From:"),
         choices: ["USD", "EUR", "JYP", "CAD", "AUD", "PKR"]
     },
     {
         name: "to_currency",
         type: "list",
-        message: chalk.magentaBright.bold("\nSelect The Currency To Covert TO:"),
+        message: chalk.magentaBright.bold("Select The Currency To Covert TO:"),
         choices: ["USD", "EUR", "JYP", "CAD", "AUD", "PKR"]
     }, 
     {
         name: "amount",
         type: "input",
-        message: chalk.magentaBright.bold("\nEnter The Amount To Convert:")
+        message: chalk.magentaBright.bold("Enter The Amount To Convert:")
 
     }
 ])
@@ -44,4 +44,4 @@ let amount = userAnswer.amount
 let baseAmount = amount/from_amount
 let convertedAmount = baseAmount * to_amount
 
-console.log(chalk.greenBright.bold(`\nCoverted Amount: ${convertedAmount} ${userAnswer.to_currency}`))
+console.log(chalk.greenBright.bold(`\n\tCoverted Amount: ${convertedAmount} ${userAnswer.to_currency}`))
